@@ -68,6 +68,6 @@ model TherapySessions {
   id         Int       @id @default(autoincrement())
   date       DateTime
   employee   Employee? @relation(fields: [employeeId], references: [id])
-  employeeId Int
+  employeeId Int?
   reserved   Boolean   @default(false)
 }
