@@ -6,9 +6,10 @@ const sessionRouter = require('./routes/session');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+const port = process.env.PORT || 3000;
 app.use('/productivity',productivityRouter);
 app.use('/user', userRouter);
 app.use('/session',sessionRouter)
 
-app.listen(3000)
+app.listen(port, () => {console.log(`Listening on localhost:${port}`)})
 module.exports = app;
