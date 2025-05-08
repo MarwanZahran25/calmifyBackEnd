@@ -37,6 +37,7 @@ model Employee {
   role         String
   user         User?
   Sentiment    Sentiment[]
+  Note         Note[]
   Login        Login[]
   Productivity Productivity[]
   burnOutRisk  burnOutRisk[]
@@ -70,4 +71,12 @@ model TherapySessions {
   employee   Employee? @relation(fields: [employeeId], references: [id])
   employeeId Int?
   reserved   Boolean   @default(false)
+}
+
+model Note {
+  id         Int      @id @default(autoincrement())
+  noteText   String
+  createdAt  DateTime @default(now())
+  employee   Employee @relation(fields: [employeeId], references: [id])
+  employeeId Int
 }

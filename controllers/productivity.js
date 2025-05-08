@@ -2,7 +2,7 @@ const {prisma} = require("../utils/prismaExport");
 
 async function productivity(req, res) {
     try {
-        const productivity = await prisma.productivity.findMany({
+        let productivity = await prisma.productivity.findMany({
             where: {
                 employeeId: req.user.employeeId,
             }
@@ -20,8 +20,9 @@ async function productivity(req, res) {
 }
 
 async function averageProductivity(req, res) {
+   //this actually return the average of the last 5 days
     try {
-        const productivity = await prisma.productivity.findMany({
+        let productivity = await prisma.productivity.findMany({
             where: {
                 employeeId: req.user.employeeId,
             }
@@ -29,6 +30,9 @@ async function averageProductivity(req, res) {
 
         if (productivity.length === 0) {
             return res.status(400).send("Cannot find productivity data");
+        }
+        if (productivity.length > 5) {
+            productivity= productivity.slice(0, 5);
         }
 
         const totalProductivity = productivity.reduce((acc, cur) => {
