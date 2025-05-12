@@ -5,6 +5,6 @@ const productivityController = require("../controllers/productivity")
 const router = express.Router();
 /* GET home page. */
 router.get('/', verify,productivityController.productivity)
-router.get('/avrege',verify,productivityController.averageProductivity)
+router.get('/average',verify,productivityController.averageProductivity)
 
 module.exports = router;

@@ -11,6 +11,6 @@ app.use("/productivity", productivityRouter);
 app.use("/user", userRouter);
 app.use("/session", sessionRouter);
 app.listen(port, () => {
-  console.log(`Listening on localhost:${port}`);
+  console.log(`Running on localhost:${port}`);
 });
 
