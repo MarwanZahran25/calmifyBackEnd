@@ -6,7 +6,7 @@ const router = express.Router();
 const { errorValidator, signupValidatorFunc } = require("../utils/validtors");
 
 /* GET users listing. */
-router.get("/", verify, userController.employeeInfo);
+router.get("/", verify.verifyUser, userController.employeeInfo);
 router.post(
   "/signup",
   signupValidatorFunc(),
@@ -14,6 +14,6 @@ router.post(
   userController.signUp
 );
 router.post("/login", userController.logIn);
-router.post("/logout", verify, userController.logOut);
+router.post("/logout", verify.verifyUser, userController.logOut);
 
 module.exports = router;

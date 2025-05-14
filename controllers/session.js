@@ -1,8 +1,8 @@
 const { prisma } = require("../utils/prismaExport");
 
-async function avilableSessions(req, res) {
+async function availableSessions(req, res) {
   try {
-    const avalibleSession = await prisma.therapySessions.findMany({
+    const availableSession = await prisma.therapySessions.findMany({
       where: {
         reserved: false,
         date: {
@@ -10,7 +10,7 @@ async function avilableSessions(req, res) {
         },
       },
     });
-    res.json(avalibleSession);
+    res.json(availableSession);
   } catch (err) {
     res.status(500).json("something went wrong");
   }
@@ -18,7 +18,7 @@ async function avilableSessions(req, res) {
 async function reserveSession(req, res) {
   try {
     const reservedSession = await prisma.therapySessions.update({
-      where: { id: req.body.seesionId },
+      where: { id: req.body.sessionId },
       data: { reserved: true, employeeId: req.user.employeeId },
     });
     res.json(reservedSession);
@@ -26,7 +26,7 @@ async function reserveSession(req, res) {
     res.status(500).json(err);
   }
 }
-async function currenUserSession(req, res) {
+async function currentUserSession(req, res) {
   const usersSessions = await prisma.therapySessions.findMany({
     where: {
       employeeId: req.user.employeeId,
@@ -35,7 +35,7 @@ async function currenUserSession(req, res) {
   res.json(usersSessions);
 }
 module.exports = {
-  avilableSessions,
+  availableSessions,
   reserveSession,
-  currenUserSession,
+  currentUserSession,
 };

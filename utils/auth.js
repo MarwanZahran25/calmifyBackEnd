@@ -1,5 +1,5 @@
 jwt = require("jsonwebtoken");
-async function verifyToken(req, res, next) {
+async function verifyUser(req, res, next) {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = await jwt.verify(token, process.env.SECRET_KEY);
@@ -10,4 +10,10 @@ async function verifyToken(req, res, next) {
     res.status(401).json("Invalid request");
   }
 }
-module.exports = verifyToken;
+async function verifyAdmin(req, res, next) {
+  if (req.user.role !== "admin") {
+    res.status(401).json("Only admins are allowed to access this resource");
+  }
+  next();
+}
+module.exports = { verifyUser, verifyAdmin };
