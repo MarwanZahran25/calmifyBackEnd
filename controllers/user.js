@@ -27,6 +27,9 @@ async function logIn(req, res) {
 
     const user = await prisma.user.findUnique({
       where: { email },
+      include: {
+        employee: true,
+      },
     });
 
     if (!user) {

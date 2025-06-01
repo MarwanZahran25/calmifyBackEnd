@@ -12,7 +12,7 @@ async function productivity(req, res) {
   }
 }
 
-async function averageProductivity(req, res) {  
+async function averageProductivity(req, res) {
   try {
     const averageProductivity = await productivityUtils.averageProductivity(
       req.user.employeeId

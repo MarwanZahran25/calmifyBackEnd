@@ -1,9 +1,14 @@
-async function productivity(employeeId) {
+const { prisma } = require("./prismaExport");
+async function productivity(employeeId, noOfDays) {
   try {
     let productivity = await prisma.productivity.findMany({
       where: {
         employeeId,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
+      take: noOfDays,
     });
 
     if (productivity.length === 0) {
@@ -12,11 +17,10 @@ async function productivity(employeeId) {
 
     return productivity;
   } catch (error) {
-    console.error("Error fetching productivity data:", error);
-    throw new Error("Failed to retrieve productivity data");
+    throw error;
   }
 }
-async function averageProductivity(employeeId) {
+async function averageProductivity(employeeId, noOfDays) {
   try {
     let productivity = await prisma.productivity.findMany({
       where: {
@@ -25,8 +29,11 @@ async function averageProductivity(employeeId) {
       orderBy: {
         id: "desc",
       },
-      take: 5,
+      take: noOfDays,
     });
+    if (productivity.length === 0) {
+      throw new Error("Cannot find productivity data");
+    }
 
     const totalProductivity = productivity.reduce((acc, cur) => {
       return acc + cur.durationHrs;
@@ -36,11 +43,30 @@ async function averageProductivity(employeeId) {
 
     return averageProductivityHrs;
   } catch (error) {
-    console.error("Error calculating average productivity:", error);
-    throw new Error("Failed to calculate average productivity");
+    throw error;
+  }
+}
+async function totalProductivity(employeeId, noOfDays) {
+  try {
+    let productivity = await prisma.productivity.findMany({
+      where: {
+        employeeId,
+      },
+      orderBy: {
+        id: "desc",
+      },
+      take: noOfDays,
+    });
+    const totalProductivity = productivity.reduce((acc, curr) => {
+      return acc + curr.durationHrs;
+    }, 0);
+    return totalProductivity;
+  } catch (error) {
+    throw error;
   }
 }
 module.exports = {
   productivity,
   averageProductivity,
+  totalProductivity,
 };

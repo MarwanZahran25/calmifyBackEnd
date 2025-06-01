@@ -1,0 +1,32 @@
+"filename", "language", "XML", "JavaScript", "JSON", "Prisma", "MS SQL", "comment", "blank", "total"
+"/Users/marwanzahran/Desktop/projBackend/.idea/dataSources.xml", "XML", 12, 0, 0, 0, 0, 0, 0, 12
+"/Users/marwanzahran/Desktop/projBackend/.idea/jsLibraryMappings.xml", "XML", 6, 0, 0, 0, 0, 0, 0, 6
+"/Users/marwanzahran/Desktop/projBackend/.idea/modules.xml", "XML", 8, 0, 0, 0, 0, 0, 0, 8
+"/Users/marwanzahran/Desktop/projBackend/.idea/projBackend.iml", "XML", 12, 0, 0, 0, 0, 0, 0, 12
+"/Users/marwanzahran/Desktop/projBackend/.idea/vcs.xml", "XML", 6, 0, 0, 0, 0, 0, 0, 6
+"/Users/marwanzahran/Desktop/projBackend/app.js", "JavaScript", 0, 20, 0, 0, 0, 0, 1, 21
+"/Users/marwanzahran/Desktop/projBackend/controllers/note.js", "JavaScript", 0, 49, 0, 0, 0, 1, 2, 52
+"/Users/marwanzahran/Desktop/projBackend/controllers/productivity.js", "JavaScript", 0, 23, 0, 0, 0, 0, 4, 27
+"/Users/marwanzahran/Desktop/projBackend/controllers/sentiment.js", "JavaScript", 0, 38, 0, 0, 0, 0, 2, 40
+"/Users/marwanzahran/Desktop/projBackend/controllers/session.js", "JavaScript", 0, 40, 0, 0, 0, 0, 2, 42
+"/Users/marwanzahran/Desktop/projBackend/controllers/user.js", "JavaScript", 0, 89, 0, 0, 0, 0, 11, 100
+"/Users/marwanzahran/Desktop/projBackend/deleteUsers.js", "JavaScript", 0, 12, 0, 0, 0, 0, 3, 15
+"/Users/marwanzahran/Desktop/projBackend/package-lock.json", "JSON", 0, 0, 1624, 0, 0, 0, 1, 1625
+"/Users/marwanzahran/Desktop/projBackend/package.json", "JSON", 0, 0, 22, 0, 0, 0, 2, 24
+"/Users/marwanzahran/Desktop/projBackend/prisma/migrations/20250306121458_init/migration.sql", "MS SQL", 0, 0, 0, 0, 47, 13, 19, 79
+"/Users/marwanzahran/Desktop/projBackend/prisma/migrations/20250412125050_model_therapy_sessions_id_int_id_default_autoincrement_date_date_time_employee_employee_relation_fields_employee_id_references_id_employee_id_int_reserved_boolean_default_false/migration.sql", "MS SQL", 0, 0, 0, 0, 8, 2, 3, 13
+"/Users/marwanzahran/Desktop/projBackend/prisma/migrations/20250412125452_reset/migration.sql", "MS SQL", 0, 0, 0, 0, 2, 8, 2, 12
+"/Users/marwanzahran/Desktop/projBackend/prisma/migrations/20250412125532_session_model/migration.sql", "MS SQL", 0, 0, 0, 0, 8, 2, 3, 13
+"/Users/marwanzahran/Desktop/projBackend/prisma/migrations/20250412130644_/migration.sql", "MS SQL", 0, 0, 0, 0, 3, 3, 3, 9
+"/Users/marwanzahran/Desktop/projBackend/prisma/schema.prisma", "Prisma", 0, 0, 0, 68, 0, 4, 12, 84
+"/Users/marwanzahran/Desktop/projBackend/routes/note.js", "JavaScript", 0, 9, 0, 0, 0, 0, 1, 10
+"/Users/marwanzahran/Desktop/projBackend/routes/productivity.js", "JavaScript", 0, 12, 0, 0, 0, 1, 2, 15
+"/Users/marwanzahran/Desktop/projBackend/routes/sentiment.js", "JavaScript", 0, 8, 0, 0, 0, 0, 1, 9
+"/Users/marwanzahran/Desktop/projBackend/routes/session.js", "JavaScript", 0, 8, 0, 0, 0, 0, 2, 10
+"/Users/marwanzahran/Desktop/projBackend/routes/user.js", "JavaScript", 0, 16, 0, 0, 0, 1, 3, 20
+"/Users/marwanzahran/Desktop/projBackend/utils/auth.js", "JavaScript", 0, 27, 0, 0, 0, 0, 3, 30
+"/Users/marwanzahran/Desktop/projBackend/utils/prismaExport.js", "JavaScript", 0, 3, 0, 0, 0, 0, 2, 5
+"/Users/marwanzahran/Desktop/projBackend/utils/productivity.js", "JavaScript", 0, 41, 0, 0, 0, 0, 6, 47
+"/Users/marwanzahran/Desktop/projBackend/utils/sentiment.js", "JavaScript", 0, 14, 0, 0, 0, 0, 1, 15
+"/Users/marwanzahran/Desktop/projBackend/utils/validtors.js", "JavaScript", 0, 23, 0, 0, 0, 0, 4, 27
+"Total", "-", 44, 432, 1646, 68, 68, 35, 95, 2388
