@@ -4,7 +4,8 @@ const productivityUtils = require("../utils/productivity");
 async function productivity(req, res) {
   try {
     const productivity = await productivityUtils.productivity(
-      req.user.employeeId
+      req.user.employeeId,
+      5
     );
     res.json(productivity);
   } catch (error) {
@@ -15,7 +16,8 @@ async function productivity(req, res) {
 async function averageProductivity(req, res) {
   try {
     const averageProductivity = await productivityUtils.averageProductivity(
-      req.user.employeeId
+      req.user.employeeId,
+      5
     );
     res.json(averageProductivity);
   } catch (error) {
