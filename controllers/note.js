@@ -40,7 +40,21 @@ async function getUserNotes(req, res) {
 }
 async function getAllNotes(req, res) {
   try {
-    const notes = await prisma.note.findMany();
+    const notes = await prisma.note.findMany({
+      include: {
+        employee: {
+          include: {
+            burnOutRisk: false,
+            Sentiment: false,
+            Note: false,
+            Login: false,
+            Productivity: false,
+            sessions: false,
+            Recommendation: false,
+          },
+        },
+      },
+    });
     res.json(notes);
   } catch (error) {
     console.error(error);
