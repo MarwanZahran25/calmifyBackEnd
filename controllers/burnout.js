@@ -3,7 +3,7 @@ const { calculateBurnout } = require("../utils/burnout");
 
 async function createBurnout(req, res) {
   try {
-    const { employeeId } = req.params;
+    const { employeeId } = req.user;
     const sentiments = await prisma.sentiment.findMany({
       where: {
         employeeId,
