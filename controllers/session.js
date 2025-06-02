@@ -11,7 +11,7 @@ async function availableSessions(req, res) {
         orderBy: {
           date: "asc",
         },
-        take: req.body.numberOfSessions,
+        take: req.body.limit,
       },
     });
     res.json(availableSession);
