@@ -21,7 +21,7 @@ async function addSentiment(req, res) {
         text: req.body.text,
       });
     } catch (error) {
-      console.error(error);
+      throw error;
     }
     const sentiment = await prisma.sentiment.create({
       data: {
@@ -32,7 +32,7 @@ async function addSentiment(req, res) {
     });
     res.json(sentiment);
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
     res.status(500).json({ error: error.message });
   }
 }
