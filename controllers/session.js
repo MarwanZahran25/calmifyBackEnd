@@ -44,4 +44,3 @@ module.exports = {
   reserveSession,
   currentUserSession,
 };
-let date = new Date(date)
