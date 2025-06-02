@@ -8,14 +8,15 @@ async function availableSessions(req, res) {
         date: {
           gte: new Date(),
         },
-        orderBy: {
-          date: "asc",
-        },
-        take: req.body.limit,
       },
+      orderBy: {
+        date: "asc",
+      },
+      take: req.body.limit,
     });
     res.json(availableSession);
   } catch (err) {
+    console.log(err.message);
     res.status(500).json("something went wrong");
   }
 }
