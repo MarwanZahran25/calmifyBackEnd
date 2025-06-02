@@ -5,6 +5,7 @@ async function verifyUser(req, res, next) {
     const decodedToken = await jwt.verify(token, process.env.SECRET_KEY);
 
     req.user = await decodedToken;
+    console.log(`${user.email} used a resource`);
     next();
   } catch (err) {
     res.status(401).json("Invalid request");

@@ -33,7 +33,7 @@ async function addSentiment(req, res) {
     res.json(sentiment);
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: error.message, user: req.user.email });
   }
 }
 module.exports = { getSentiment, addSentiment };
