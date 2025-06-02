@@ -8,6 +8,10 @@ async function availableSessions(req, res) {
         date: {
           gte: new Date(),
         },
+        orderBy: {
+          date: "asc",
+        },
+        take: req.body.numberOfSessions,
       },
     });
     res.json(availableSession);
