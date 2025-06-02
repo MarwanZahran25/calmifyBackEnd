@@ -12,7 +12,7 @@ async function availableSessions(req, res) {
       orderBy: {
         date: "asc",
       },
-      take: req.query.limit,
+      take: req.params.limit,
     });
     res.json(availableSession);
   } catch (err) {
