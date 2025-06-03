@@ -24,7 +24,7 @@ async function recommend(req, res) {
       console.log("handeled");
     }
     const { employeeId } = req.user;
-    const productivity = await totalProductivity(employeeId);
+    const productivity = await totalProductivity(employeeId, 5);
     const sentimens = await getSentiments(employeeId);
 
     const burnout = calculateBurnout(sentimens);

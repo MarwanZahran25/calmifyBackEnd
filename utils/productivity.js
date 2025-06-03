@@ -46,7 +46,7 @@ async function averageProductivity(employeeId, noOfDays) {
     throw error;
   }
 }
-async function totalProductivity(employeeId, noOfDays) {
+async function totalProductivity(employeeId, noOfDays = 6) {
   try {
     let productivity = await prisma.productivity.findMany({
       where: {
