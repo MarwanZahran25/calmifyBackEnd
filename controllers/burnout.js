@@ -3,6 +3,24 @@ const { calculateBurnout } = require("../utils/burnout");
 
 async function createBurnout(req, res) {
   try {
+    try {
+      const lastOne = await prisma.burnOutRisk.findFirstOrThrow({
+        where: {
+          employeeId: req.user.employeeId,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+      const lastOneDate = new Date(`${lastOne.createdAt}`);
+      const today = new Date();
+      if (lastOneDate.getDate() === today.getDate()) {
+        res.json(lastOne);
+        return;
+      }
+    } catch (err) {
+      console.log("nothing");
+    }
     const { employeeId } = req.user;
     const sentiments = await prisma.sentiment.findMany({
       where: {

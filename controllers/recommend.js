@@ -5,6 +5,24 @@ const { getSentiments } = require("../utils/sentiment");
 const { calculateBurnout } = require("../utils/burnout");
 async function recommend(req, res) {
   try {
+    try {
+      const lastOne = await prisma.recommendation.findFirst({
+        where: {
+          employeeId: req.user.employeeId,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+      const lastOneDate = new Date(`${lastOne.createdAt}`);
+      const today = new Date();
+      if (lastOneDate.getDate() === today.getDate()) {
+        res.json(lastOne);
+        return;
+      }
+    } catch (err) {
+      console.log("handeled");
+    }
     const { employeeId } = req.user;
     const productivity = await totalProductivity(employeeId);
     const sentimens = await getSentiments(employeeId);
