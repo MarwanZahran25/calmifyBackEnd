@@ -50,7 +50,7 @@ async function totalProductivity(employeeId, noOfDays = 6) {
   try {
     let productivity = await prisma.productivity.findMany({
       where: {
-        employeeId,
+        employeeId: employeeId,
       },
       orderBy: {
         id: "desc",

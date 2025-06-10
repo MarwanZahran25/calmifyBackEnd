@@ -51,7 +51,7 @@ async function getAllBurnout(req, res) {
   try {
     const burnout = await prisma.burnOutRisk.findMany({
       where: {
-        employeeId: req.params.employeeId,
+        employeeId: req.user.employeeId,
       },
     });
     res.json({ burnout });
