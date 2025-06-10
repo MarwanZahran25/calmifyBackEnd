@@ -58,10 +58,13 @@ async function all(req, res) {
   try {
     const recommendation = await prisma.recommendation.findMany({
       where: {
-        id: req.user.employeeId,
+        employeeId: req.user.employeeId,
       },
     });
     res.json(recommendation);
+    if (recommendation.length === 0) {
+      res.status(404).json({ message: "No recommendations found" });
+    }
   } catch (error) {
     res.status(500).json(error);
   }
