@@ -53,6 +53,9 @@ async function getAllBurnout(req, res) {
       where: {
         employeeId: req.user.employeeId,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     res.json({ burnout });
   } catch (error) {

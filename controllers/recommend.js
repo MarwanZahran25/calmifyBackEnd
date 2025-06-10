@@ -60,6 +60,9 @@ async function all(req, res) {
       where: {
         employeeId: req.user.employeeId,
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
     res.json(recommendation);
     if (recommendation.length === 0) {
