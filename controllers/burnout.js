@@ -58,6 +58,9 @@ async function getAllBurnout(req, res) {
       },
     });
     res.json({ burnout });
+    if (burnout.length === 0) {
+      res.status(404).json({ message: "No burnout records found." });
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
